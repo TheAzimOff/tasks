@@ -51,19 +51,9 @@ export const NavbarStyles = styled.nav`
   font-family: 'Roboto Condensed', sans-serif;
   color: #fff;
   backdrop-filter: blur(5px);
-  z-index: 2;
+  z-index: 4;
   .user {
     display: flex;
-    input {
-      width: 200px;
-      border: none;
-      outline: none;
-      background: transparent;
-      color: #fff;
-      font-size: 1.5rem;
-      padding-left: 5px;
-      font-family: 'Roboto Condensed', sans-serif;
-    }
     h2 {
       font-weight: 400;
       font-size: 1.5rem;
@@ -108,36 +98,42 @@ export const SpecialNoteStyles = styled.div`
   position: relative;
   margin: 20px;
   margin-top: 80px;
-  padding: 20px;
   border-radius: 15px;
   background: #1b56d0;
   color: #fff;
   font-family: Rubik, sans-serif;
   font-weight: 300;
-  overflow: hidden;
-  &::before {
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    transform: translate(50%, 50%);
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    background: #fff7;
-    box-shadow: 0px 0px 16px 0px;
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: translate(-50%, -50%);
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    background: #fff7;
-    box-shadow: 0px 0px 16px 0px;
+  .special-note {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+    border-radius: 15px;
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translate(50%, 50%);
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      background: #fff7;
+      box-shadow: 0px 0px 16px 0px;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(-50%, -50%);
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      background: #fff7;
+      box-shadow: 0px 0px 16px 0px;
+    }
   }
   .special-note-header {
     font-size: 24px;
@@ -153,6 +149,7 @@ export const SpecialNoteStyles = styled.div`
       border: none;
       color: #fff;
       font-size: 20px;
+      cursor: pointer;
     }
   }
 `;
@@ -203,7 +200,7 @@ export const AddButtonStyles = styled.div`
   box-shadow: 0 10px 15px #000;
   transition: 0.2s ease;
   cursor: pointer;
-  z-index: 4;
+  z-index: 6;
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 11px 15px #000;
@@ -211,6 +208,7 @@ export const AddButtonStyles = styled.div`
   &.open {
     box-shadow: none;
     transform: rotate(135deg);
+    background: transparent;
   }
 `;
 export const AddFormStyles = styled.div`
@@ -221,11 +219,11 @@ export const AddFormStyles = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  /*justify-content: center; */
   align-items: flex-start;
   padding: 20px;
-  background: #1b56d0;
-  z-index: 3;
+  background: #000a;
+  backdrop-filter: blur(5px);
+  z-index: 5;
   clip-path: circle(25px at calc(100vw - 50px) calc(100vh - 50px));
   transition: clip-path 0.5s linear;
   color: #fff;
@@ -239,19 +237,20 @@ export const AddFormStyles = styled.div`
   .adding-text {
     width: 100%;
     padding: 5px 10px;
-    background: #417fff;
+    background: transparent;
     color: #fff;
-    border: none;
+    border: 1px solid #fff2;
     border-radius: 7px;
     outline: none;
     font-size: 1rem;
     margin-bottom: 1rem;
     &:focus {
-      background: #fff8;
+      border-color: #fff5;
     }
     &.task {
-      min-height: 200px;
-      min-width: 100%;
+      height: 200px;
+      width: 100%;
+      resize: none;
       font-family: Rubik, sans-serif;
       font-size: 1rem;
     }
@@ -298,6 +297,7 @@ export const NotesStyles = styled.div`
       display: flex;
       cursor: pointer;
       position: relative;
+      z-index: 3;
     }
   }
   .note-container {
@@ -329,7 +329,8 @@ export const NotesStyles = styled.div`
       }
     }
     .active,
-    .note-postpone {
+    .note-postpone,
+    button.done {
       background: #d08600;
     }
     .done,
@@ -384,4 +385,16 @@ export const NoteStyles = styled.div`
     font-size: 75%;
     user-select: none;
   }
+`;
+export const PopupStyles = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  height: 530px;
+  width: 400px;
+  z-index: 6;
+  background: #fff;
+  overflow: hidden;
 `;
