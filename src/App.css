@@ -8,6 +8,13 @@
 body {
   background: #0d101f;
 }
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
 .container {
   display: flex;
   flex-direction: column;
