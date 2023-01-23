@@ -3,7 +3,7 @@
   "short_name": "Tasks",
   "description": "A Tasks app with cloud-based synchronization",
   "start_url": "/index.html",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#0d101f",
   "theme_color": "#0d101f",
   "orientation": "portrait-primary",
